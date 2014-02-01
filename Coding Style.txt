@@ -1,0 +1,18 @@
+Arduino
+=======
+C/C++ Code for the Arduino Mini
+
+Programming style guide:
+
+*Place all class, method, fuction, and global variables/constans in header (.h) files
+
+*Place all C code in .c files
+
+*Place all C++ code in .cpp files
+
+*Use K&R method for functions, methods, and code blocks
+
+*Use Allman style for classes
+
+Intent styles:
+http://en.wikipedia.org/wiki/Indent_style
