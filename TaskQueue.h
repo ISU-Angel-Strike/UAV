@@ -18,12 +18,11 @@ public:
 	bool DoNext();
 	bool Clear();
 	
-	byte Add(Task t, void *c, char *id = "Generic Task");
+	byte Add(Task t, void *c);
 	
 private:
 	Task tQue[MAXQUEUE];
 	void *cQue[MAXQUEUE];
-	char *idQue[MAXQUEUE];
 	
 	byte length;
 };
