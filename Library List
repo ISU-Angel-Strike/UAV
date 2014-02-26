@@ -1,0 +1,46 @@
+This is a list of all libraries/classes that need to be written for the UAV.
+
+If there is not a name below a class, you may add your name if you are confident that you can write it yourself.
+
+All libraries for Arduino Mini:
+--------------
+1)  Sonar Sensor (Ranger)
+      -Eric M
+2)  Infrared Sensor
+      -
+
+3)  Task Queue
+      -Eric M.
+4)  Scheduler
+      -Eric M.
+
+5)  Arducopter communicator
+      -
+6)  Base station communicator
+      -
+
+7)  Collision Avoidance
+      -
+
+
+For Arducopter board:
+1)  Arduino Mini communicator
+      -Eric M.
+
+
+Notes:
+
+All libraries MUST follow the same coding style! They must all have:
+*An empty constructor
+*Init() method
+*Tasks that are added to the scheduler MUST be: static void DoTask(void *c)
+*All sensor libraries must have idential interfaces! Refer to the Ranger library as a template
+*Both communicators must also have identical interfaces
+*Any class that all others need to access must be stored as a global pointer and must have a 
+  name that starts with an underscore e.g.: TaskQueue *_logicalName
+
+All libraries must only contain ONE class! If a library needs two classes, split it into two libraries!
+  --If you think you have an exception to this rule, ask the group or email Eric Middleton.
+
+If you are unsure of any of the above rules (or anything else), check any existing libraries first.
+If that doesn't answer your question, email Eric Middleton.
