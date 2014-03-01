@@ -4,7 +4,7 @@ C/C++ Code for the Arduino Mini
 
 Programming style guide:
 
-*Place all class, method, fuction, and global variables/constans in header (.h) files
+*Place all class, method, fuction, and global variables/constants in header (.h) files
 
 *Place all C code in .c files
 
