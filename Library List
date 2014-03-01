@@ -5,21 +5,27 @@ If there is not a name below a class, you may add your name if you are confident
 All libraries for Arduino Mini:
 --------------
 1)  Sonar Sensor (Ranger)
-      -Eric M
+      -Eric M.
+      
 2)  Infrared Sensor
-      -
-
-3)  Task Queue
+      -Kyle H.
+      
+3)  Optical Flow
+      -Chris W.
+      
+4)  Task Queue
       -Eric M.
-4)  Scheduler
+      
+5)  Scheduler
       -Eric M.
 
-5)  Arducopter communicator
+6)  Arducopter communicator
       -
-6)  Base station communicator
+      
+7)  Base station communicator
       -
 
-7)  Collision Avoidance
+8)  Collision Avoidance
       -
 
 
