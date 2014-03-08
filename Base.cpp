@@ -10,26 +10,33 @@ Base::State(byte currentState, byte id, byte length, byte data)
 	currentState = ST_IDLE;
     switch (currentState) {
         case ST_IDLE:
-			//Sets the currentState to the next state 
-			currentState = ST_ID;
-            break;
-        case ST_ID:
-			if(Serial.read() > -1){
-			currentState = ST_LENGTH;
+			//Checks to see if id packages is in the queue
+			idCheck = Serial.read();
+			if(idCheck == idValue){
+				currentState = ST_ID;
+				break;
 			}else{
-				currentState = ST_IDLE;
+				break;
 			}
-            break;
+        case ST_ID:
+			//checks the id package number
+			idNum = Serial.read();
+			if(idNum > -1){
+				currentState = ST_LENGTH;
+				break;
+			}else{
+				break;
+			}
         case ST_LENGTH:
 			//checks the length of the incoming data
 			if(length == 128){
 				currentState = ST_DATA;
 				break;
 			}else{
-				currentState = ST_IDLE;
 				break;
 			}
         case ST_DATA:
+			//gets the data from the package 
 			GetData(byte id, byte* l);
 			currentState = ST_IDLE;
             break;
