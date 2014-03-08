@@ -1,9 +1,8 @@
-
 #define		ST_IDLE		1
 #define		ST_ID		2
 #define		ST_LENGTH	3
 #define		ST_DATA		4
-#define     	idValue		55
+#define     	packStart	55
 class Base
 {
 public:
