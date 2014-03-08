@@ -1,3 +1,9 @@
+
+#define		ST_IDLE		1
+#define		ST_ID		2
+#define		ST_LENGTH	3
+#define		ST_DATA		4
+#define     	idValue		55
 class Base
 {
 public:
@@ -11,6 +17,8 @@ private:
 		byte data[8][128];
 		byte id[8];
 		byte currentState;
+		byte idNum;
+		byte idCheck;
 		int numberOfPackages;
 		
 };
