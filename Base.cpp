@@ -76,3 +76,9 @@ for (int i = 0; i < numberOfPackages; i++){
 }
 return d;
 }
+Base::Stock(byte id, byte* data)
+{
+	for(int i =0; i < 8; i++){
+		dataStock[i] = memcpy(ds,data[i],128);
+	}
+}
