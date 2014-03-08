@@ -12,7 +12,7 @@ Base::State(byte currentState, byte id, byte length, byte data)
         case ST_IDLE:
 			//Checks to see if id packages is in the queue
 			idCheck = Serial.read();
-			if(idCheck == idValue){
+			if(idCheck == packStart){
 				currentState = ST_ID;
 				break;
 			}else{
