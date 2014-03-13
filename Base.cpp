@@ -11,6 +11,8 @@ Base::State(byte currentState, byte id, byte length, byte data)
     switch (currentState) {
         case ST_IDLE:
 			//Checks to see if id packages is in the queue
+            int step = 0;
+			int checkSumState = 0;
 			idCheck = Serial.read();
 			if(idCheck == packStart){
 				currentState = ST_ID;
@@ -23,23 +25,37 @@ Base::State(byte currentState, byte id, byte length, byte data)
 			idNum = Serial.read();
 			if(idNum > -1){
 				currentState = ST_LENGTH;
+				checkSumState ^= idNum;
 				break;
 			}else{
 				break;
 			}
         case ST_LENGTH:
 			//checks the length of the incoming data
-			if(length == 128){
+			length = Serial.read();
+			if(length > -1){
 				currentState = ST_DATA;
+				checkSumState ^= length;
 				break;
 			}else{
 				break;
 			}
         case ST_DATA:
-			//gets the data from the package 
-			GetData(byte id, byte* l);
-			currentState = ST_IDLE;
+			//gets the data from the package
+            stData[idNum][step] = data;
+            checkSumState ^= data;
+            step++;
             break;
+            if ( step > length)
+			currentState = ST_CHECK;
+            break;
+		case ST_CHECK:
+			if(checkSumState == checkSum){
+				currentState = ST_IDLE;
+				break;
+			}else{
+				break;
+			}
         default:
             break;
     }
@@ -80,5 +96,18 @@ Base::Stock(byte id, byte* data)
 {
 	for(int i =0; i < 8; i++){
 		dataStock[i] = memcpy(ds,data[i],128);
+	}
+}
+Base::GetStock(byte id)
+{
+    byte tempStock[1][128];
+	for (int = i; i < 8; i++){
+		if(id == dataStock[i][0]){
+            memcpy(tempStock[1],dataStock[i])
+		}
+		for(int j = i; j < 8; j++){
+			memcpy(dataStock[j],dataStock[j+1],128);
+		}
+        return tempStock;
 	}
 }
