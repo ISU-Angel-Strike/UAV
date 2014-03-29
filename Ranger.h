@@ -16,8 +16,6 @@ public:
 	bool IsRunning();
 	
 	static void Interrupt();
-	
-	static void Timer(void *c);
 
 private:
 	float Filter(float reading);
