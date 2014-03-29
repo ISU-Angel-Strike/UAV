@@ -16,10 +16,12 @@ public:
 	bool IsRunning();
 	
 	static void Interrupt();
-	void ProcessInterrupt(bool high);
+	
+	static void Timer(void *c);
 
 private:
 	float Filter(float reading);
+	void ProcessInterrupt(bool high);
 	
 	byte id, pin;
 	bool running;
