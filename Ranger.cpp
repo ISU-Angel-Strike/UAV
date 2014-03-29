@@ -51,6 +51,7 @@ bool Ranger::IsRunning() {
 	return running;
 }
 
+
 //This is called automatically when the interrupt pin switches between high and low
 void Ranger::Interrupt() {
 	_ranger->ProcessInterrupt(digitalRead(pin) == HIGH);
