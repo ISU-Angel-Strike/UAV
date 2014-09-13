@@ -8,7 +8,6 @@ Infrared::Infrared(){
 bool Infrared::Init(byte id){
 	bool retval = true;
 	
-	us = 0;
 	running = false;
 	this->id = id;
 	
@@ -61,7 +60,8 @@ void Infrared::ProcessInfraredInterrupt(){
 	dist = 27.86*pow(analogRead(pin)*(5.0/1023.0),-1.15);
 }
 
-float Infrared::Filter(float reading){
-	return reading * 0.9f + us * 0.1f;
+float Infrared::Filter(float current, float prev){
+	//taking 90% of the current distance and 10% of the previous distance to smooth the data
+	return current * 0.9f + prev * 0.1f;
 }
 
