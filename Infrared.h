@@ -24,7 +24,7 @@ private:
 	byte id, pin;
 	bool running;
 	unsigned long volatile start;
-	float us;	
+	float dist;	
 };
 
 #endif
