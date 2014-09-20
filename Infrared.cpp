@@ -56,8 +56,10 @@ void Infrared::InfraredInterrupt(){
 }
 
 void Infrared::ProcessInfraredInterrupt(){
+	float newDist;
 	//distance (cm) = 27.86 (voltage reading)^-1.15
-	dist = 27.86*pow(analogRead(pin)*(5.0/1023.0),-1.15);
+	newDist = 27.86*pow(analogRead(pin)*(5.0/1023.0),-1.15);
+	dist = Infrared::Filter(newDist, dist);
 }
 
 float Infrared::Filter(float current, float prev){
