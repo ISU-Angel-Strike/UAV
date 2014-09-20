@@ -1,5 +1,6 @@
 #include "Infrared.h"
 #include <math.h>
+#include <Arduino.h>
 
 Infrared::Infrared(){
 
