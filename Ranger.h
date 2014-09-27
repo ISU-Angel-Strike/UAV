@@ -2,7 +2,7 @@
 #define RANGER_H
 
 Ranger *_ranger;
-
+typedef unsigned char byte;
 class Ranger
 {
 public:
