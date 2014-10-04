@@ -76,22 +76,7 @@ Base::Send(byte id,byte length,byte *data)
    Serial.write(checksum);
 }
 //copies data from data packages and moves the data data package to the front of the qeue 
-Base::GetData(byte id, byte* l)
-{
-		byte d[128]
-for (int i = 0; i < numberOfPackages; i++){
-	if(id[i] == id){
-		*l = length[i];
-		memcpy(d,data[i],128);
-		for(int j = 0; j < 8; j++){
-			length[j]=length[j+1];
-			data[j]=data[j+1];
-			id[j]=id[j+1];
-		}
-		break;
-}
-return d;
-}
+  
 Base::Stock(byte id, byte* data)
 {
 	for(int i =0; i < 8; i++){
