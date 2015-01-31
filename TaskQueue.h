@@ -5,7 +5,7 @@
 
 typedef void (*Task)(void*);
 
-#define 	MAXQUEUE		128
+#define 	MAXQUEUE		64
 
 class TaskQueue
 {
@@ -21,11 +21,9 @@ public:
 	byte Add(Task t, void *c);
 	
 private:
-	Task tQue[MAXQUEUE];
-	void *cQue[MAXQUEUE];
+	volatile Task tQue[MAXQUEUE];
+	volatile void *cQue[MAXQUEUE];
 	
-	byte length;
+	volatile byte length;
 };
-
-extern TaskQueue *_taskQue;
 #endif
