@@ -6,14 +6,14 @@
 #include <avr/interrupt.h>
 #include "TaskQueue.h"
 
-#define MAXTASKS		100
+#define MAXTASKS		16
 
 class Scheduler
 {
 public:
 	Scheduler();
 	
-	void Init();
+	void Init(TaskQueue *que);
 	
 	void Start();
 	void Stop();
@@ -24,14 +24,16 @@ public:
 	bool RemoveTask(Task t);
 	
 	static void Interrupt();
-	void ProcessInterrupt();
+	void ProcessInterrupt() volatile;
 
 private:
+	TaskQueue *que;
 	Task schedule[MAXTASKS];
 	void *cList[MAXTASKS];
-	unsigned short times[MAXTASKS], offset[MAXTASKS];
-	unsigned long ticks;
-	byte length, tInit;
+	unsigned short times[MAXTASKS];
+	uint32_t offset[MAXTASKS];
+	volatile uint32_t ticks;
+	byte length;
 };
 
 extern Scheduler *_schedule;
